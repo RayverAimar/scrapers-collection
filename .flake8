@@ -1,0 +1,8 @@
+[flake8]
+import-order-style = smarkets
+exclude = .git,__pycache__,*.pyc
+max-line-length = 120
+
+plugins = flake8-black
+
+application_import_names = scrapers
