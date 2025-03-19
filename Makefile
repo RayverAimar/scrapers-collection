@@ -23,6 +23,9 @@ install:
 	@echo "📦 Installing dependencies from requirements.txt..."
 	pip install -r requirements.txt
 	@echo "✅ Dependencies installed successfully"
+	@echo "📦 Installing pre-commit git hooks..."
+	pre-commit install
+	@echo "✅ Pre-commit git hooks installed successfully"
 
 scrape-reinfo:
 	@echo "🌐 Starting REINFO scraper..."
