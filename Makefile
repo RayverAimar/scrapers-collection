@@ -2,7 +2,7 @@
 
 update-requirements:
 	@echo "🔄 Updating requirements and installing dependencies..."
-	make create-requirements && make install
+	make create-requirements && pip install -r requirements.txt
 	@echo "✅ Requirements updated and installed successfully"
 
 create-requirements:
@@ -19,6 +19,7 @@ create-requirements:
 	@echo "✅ requirements.txt generated successfully"
 
 install:
+	make create-requirements
 	@echo "📦 Installing dependencies from requirements.txt..."
 	pip install -r requirements.txt
 	@echo "✅ Dependencies installed successfully"
