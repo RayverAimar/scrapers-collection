@@ -56,3 +56,13 @@ clean:
 	rm -rf .pytest_cache/
 	rm -rf *.pyc
 	@echo "✅ Cleanup completed"
+
+scrape-sunat:
+	@echo "🌐 Starting SUNAT scraper..."
+	@if [ -n "$(csv)" ]; then \
+		echo "📄 Using CSV file: $(csv)"; \
+		PYTHONPATH=. python scrapers/sunat/sunat_scraper.py --csv $(csv); \
+	else \
+		PYTHONPATH=. python scrapers/sunat/sunat_scraper.py; \
+	fi
+	@echo "✅ SUNAT scraper completed"
