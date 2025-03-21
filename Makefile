@@ -32,6 +32,14 @@ scrape-reinfo:
 	PYTHONPATH=. python scrapers/reinfo/reinfo_scraper.py
 	@echo "✅ REINFO scraper completed"
 
+scrape-redjum:
+	@echo "🌐 Starting REDJUM scraper..."
+	@if [ -n "$(csv)" ]; then \
+		echo "📄 Using CSV file: $(csv)"; \
+	fi
+	PYTHONPATH=. python scrapers/redjum/redjum_scraper.py $(if $(csv),--csv $(csv),)
+	@echo "✅ REDJUM scraper completed"
+
 lint:
 	@echo "🔍 Running flake8 linter..."
 	flake8 scrapers/

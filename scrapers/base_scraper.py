@@ -35,6 +35,7 @@ class BaseScraper:
         self.options.add_argument("--disable-infobars")
         self.options.add_argument("--disable-dev-shm-usage")
         self.options.add_argument("--disable-notifications")
+        self.options.set_capability("goog:loggingPrefs", {"performance": "ALL"})
 
         prefs = {
             "profile.default_content_setting_values.notifications": 2,
@@ -47,6 +48,7 @@ class BaseScraper:
         }
         self.options.add_experimental_option("prefs", prefs)
 
+        self.driver_logs = None
         self.driver: Optional[webdriver.Chrome] = None
         self.start_time: Optional[datetime] = None
 
